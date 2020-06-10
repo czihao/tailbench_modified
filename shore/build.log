@@ -1,0 +1,122 @@
+/bin/rm -f config/shore-config.h
+aclocal --force ...
+autoheader --force ...
+autoconf --force ...
+automake -a --include-deps ...
+------------------------------------------------------------
+
+Run
+./configure
+
+./configure --help
+to see the options
+
+Example configurations:
+For use with valgrind and to override CXX shell variable:
+./configure CXX=/usr/bin/g++ --enable-valgrind
+For maximum debugging and tracing :
+./configure --with-debug-level3 --enable-checkrc --enable-trace
+For lots of debugging and tracing :
+./configure --with-debug-level2 --enable-trace
+For debugging and no tracing :
+./configure --with-debug-level1
+
+For SOLARIS, we suggest that you use --enable-dependendency-tracking and CC:
+./configure CXX=CC --enable-dependency-tracking
+For no debugging and no tracing :
+./configure
+
+After you configure, run
+make
+
+then, optionally,
+make check
+
+------------------------------------------------------------
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... libtoolize: putting auxiliary files in '.'.
+libtoolize: linking file './ltmain.sh'
+libtoolize: You should add the contents of the following files to 'aclocal.m4':
+libtoolize:   '/usr/share/aclocal/libtool.m4'
+libtoolize:   '/usr/share/aclocal/ltoptions.m4'
+libtoolize:   '/usr/share/aclocal/ltsugar.m4'
+libtoolize:   '/usr/share/aclocal/ltversion.m4'
+libtoolize:   '/usr/share/aclocal/lt~obsolete.m4'
+libtoolize: Remember to add 'LT_INIT' to configure.in.
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.in,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+libtoolize: 'AC_PROG_RANLIB' is rendered obsolete by 'LT_INIT'
+------------------------------------------------------------
+
+Run
+./configure [CONFIGURATIONS] [COMPILATION] SHORE_HOME=shore-dir [READLINE_HOME=readline-dir]
+
+./configure --help
+to see the options
+
+Supported configuration options
+--enable-shore6 - If compiling against shore-sm-6.X.X
+--enable-dora - Includes DORA files, defines CFG_DORA
+--enable-flusher - Defines CFG_FLUSHER
+--enable-qpipe - Includes QPipe files, defines CFG_QPIPE
+--enable-bt - Enables backtracing facility. defines CFG_BT
+--enable-simics - Adds the simics MAGIC instructions. defines CFG_SIMICS
+--enable-hack - Enables physical design haks. Padding padding TPC-B tables, and partitioning indexes, such as OL_IDX
+
+
+There are 3 supported compilation options
+--enable-debug - Compile for debugging, e.g., -g
+--enable-profile - Compile for profiling, e.g., -pg for oprofile
+--enable-dbgsymbols - Compile with debug symbols, e.g., -ggdb
+
+If none of them is enabled then the default compilation will be with
+the maximum optimizations possible, e.g., -O3 or -xO4
+
+For SOLARIS, we suggest that you use --enable-dependendency-tracking and CC
+./configure CXX=CC --enable-dependency-tracking
+
+After you configure, run
+make
+
+------------------------------------------------------------
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for g++... g++
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking for style of include used by make... GNU
+checking dependency style of g++... gcc3
+checking for ranlib... ranlib
+configure: Configuring Shore Kits
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking CXX... g++
+checking compiler version... 7.5.0
+checking Readline location... 
